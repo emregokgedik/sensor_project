@@ -1,0 +1,11 @@
+# Build dosyaları
+/build/
+
+# Derleme artefaktları
+*.o
+*.exe
+*.out
+
+# VSCode ayarları
+.vscode/
+
