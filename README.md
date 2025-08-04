@@ -1,46 +1,63 @@
-# Sensor Data Collection System
+# 📡 Çoklu Sensör Veri Toplama Uygulaması
 
-This project simulates a multi-sensor data collection system written in C++ with multithreading and MySQL database integration. It demonstrates how to manage multiple sensors running concurrently, collect their data, and store the readings in a MySQL database.
+Bu proje, C++ ile çoklu sensör simülasyonu, çoklu iş parçacığı (multithreading) kullanımı ve MySQL veritabanı entegrasyonunu gösteren bir uygulamadır. Birden fazla sensörün eş zamanlı olarak çalışmasını, verilerin toplanmasını ve bu verilerin MySQL veritabanına kaydedilmesini sağlar.
 
----
 
-## Features
+## Özellikler
 
-- **Multi-threaded Sensor Simulation:** Each sensor (Temperature, Pressure, Humidity, Light) runs in its own thread.
-- **Thread-safe Data Access:** Uses mutexes and atomic flags to avoid data races.
-- **Database Integration:** Sensor data is stored in a MySQL database (`sensor_db`) in real time.
-- **Extensible Architecture:** Abstract base class `Sensor` allows easy addition of new sensor types.
-- **Clean Code & Best Practices:** Uses modern C++ standards (C++17), smart pointers, and RAII.
-
----
-
-## Prerequisites
-
-- C++17 compatible compiler (e.g., g++ or clang++)
-- MySQL server running locally or remotely
-- MySQL C connector library installed (`libmysqlclient`)
-- CMake or Make tool for building the project
+- **Çoklu İş Parçacığı (Multithreading):** Her sensör (Sıcaklık, Basınç, Nem, Işık) kendi iş parçacığında çalışır.
+- **Veri Yarışmasını Önleme:** Mutex ve atomic yapılar kullanılarak veri tutarlılığı sağlanır.
+- **Veritabanı Entegrasyonu:** Sensör verileri gerçek zamanlı olarak MySQL veritabanına kaydedilir.
+- **Esnek Tasarım:** Soyut `Sensor` sınıfı sayesinde yeni sensör tipleri kolayca eklenebilir.
+- **Modern C++ Standartları:** C++17 kullanımı, akıllı işaretçiler ve RAII prensipleri uygulanmıştır.
 
 ---
 
-## Setup
+## Gereksinimler
+- C++17 uyumlu derleyici (g++ veya clang++ önerilir)
+- MySQL sunucusu (yerel veya uzaktan)
+- MySQL C bağlantı kütüphanesi (`libmysqlclient`)
+- Make aracı (proje derlemesi için)
+---
 
-1. **Clone the repository**
+## Kurulum
+
+1. **Projeyi klonlayın**
    ```bash
    git clone https://github.com/yourusername/sensor_project.git
    cd sensor_project
+   ```
 
 
-2. **Configure MySQL**
-Create the database and table:
+2. **MySQL veritabanını hazırlayın**
    ```bash
-   CREATE DATABASE sensor_db;
-USE sensor_db;
+    CREATE DATABASE sensor_db;
+    USE sensor_db;
 
-CREATE TABLE sensor_data (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  sensor_name VARCHAR(50),
-  value FLOAT,
-  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+    CREATE TABLE sensor_data (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        sensor_name VARCHAR(50),
+        value FLOAT,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    ```
+
+
+
+3. **Bağlantı ayarlarını main.cpp içinde güncelleyin**
+Host, kullanıcı adı, şifre ve veritabanı ismini kendi ortamınıza göre ayarlayın.
+
+
+
+4. **Projeyi derleyin**
+   ```bash
+   make
+   ```
+
+
+
+5. **Uygulamayı çalıştırın**
+   ```bash
+   ./sensor_app
+   ```
 
