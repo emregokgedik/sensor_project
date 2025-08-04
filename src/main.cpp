@@ -13,7 +13,7 @@ int main() {
     manager.addSensor(tempSensor);
     manager.startAll();
 
-    // Veritabanı bağlantısı - kendi kullanıcı adı, şifre ve db ismini gir
+    // Veritabanı bağlantısı - kendi bilgilerinle değiştir
     DatabaseManager db("localhost", "root", "", "sensor_db");
 
     for (int i = 0; i < 5; ++i) {
