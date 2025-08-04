@@ -3,18 +3,18 @@
 #include <chrono>
 #include "SensorManager.hpp"
 #include "TemperatureSensor.hpp"
+#include "DatabaseManager.hpp"
 
 int main() {
+    std::cout << "Program başladı." << std::endl;
+
     SensorManager manager;
 
-    // Sensör ekle
     auto tempSensor = std::make_shared<TemperatureSensor>();
     manager.addSensor(tempSensor);
 
-    // Tüm sensörleri başlat
     manager.startAll();
 
-    // 5 saniye boyunca sensör verilerini yazdır
     for (int i = 0; i < 5; ++i) {
         auto data = manager.getSensorData();
         for (const auto& [name, value] : data) {
@@ -23,8 +23,8 @@ int main() {
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
-    // Sensörleri durdur
     manager.stopAll();
 
+    std::cout << "Program bitti." << std::endl;
     return 0;
 }
