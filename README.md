@@ -11,4 +11,3 @@ Bu proje, çeşitli sensörlerin simülasyonunu yapan ve verilerini MySQL verita
 
 ```bash
 make
-

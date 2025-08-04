@@ -1,11 +1,8 @@
-# Build dosyaları
+# Build klasörü ve derleme dosyaları
 /build/
-
-# Derleme artefaktları
 *.o
 *.exe
 *.out
 
 # VSCode ayarları
 .vscode/
-
