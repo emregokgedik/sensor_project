@@ -3,17 +3,23 @@
 #include <chrono>
 #include "SensorManager.hpp"
 #include "TemperatureSensor.hpp"
+#include "PressureSensor.hpp"
+#include "HumiditySensor.hpp"
+#include "LightSensor.hpp"
 #include "DatabaseManager.hpp"
 
 int main() {
     std::cout << "Program başladı." << std::endl;
 
     SensorManager manager;
-    auto tempSensor = std::make_shared<TemperatureSensor>();
-    manager.addSensor(tempSensor);
+
+    manager.addSensor(std::make_shared<TemperatureSensor>());
+    manager.addSensor(std::make_shared<PressureSensor>());
+    manager.addSensor(std::make_shared<HumiditySensor>());
+    manager.addSensor(std::make_shared<LightSensor>());
+
     manager.startAll();
 
-    // Veritabanı bağlantısı - kendi bilgilerinle değiştir
     DatabaseManager db("localhost", "root", "", "sensor_db");
 
     for (int i = 0; i < 5; ++i) {
