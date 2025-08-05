@@ -61,3 +61,9 @@ Host, kullanıcı adı, şifre ve veritabanı ismini kendi ortamınıza göre ay
    ./sensor_app
    ```
 
+
+## Uygulamadan Görseller:
+<img width="425" height="372" alt="Ekran Resmi 2025-08-05 03 30 21" src="https://github.com/user-attachments/assets/21e92585-a59b-49fc-8f99-5617a5c749cc" />
+<img width="410" height="276" alt="Ekran Resmi 2025-08-05 03 28 47" src="https://github.com/user-attachments/assets/8c2adb13-9faf-433f-b8b3-6b49294b60dd" />
+
+
